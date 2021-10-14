@@ -1,0 +1,63 @@
+@import '../../common/scss/colors';
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: $darkGray
+}
+
+.App {
+    height: 100vh;
+    
+    a {
+        text-decoration: none;
+    }
+
+    .textInput {
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .defaultButton {
+        background: $liveBlue;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 15px;
+        margin: 0 5px;
+        padding: 5px;
+        height: 30px;
+        width: max-content;
+        border: $greenBlue 2px outset;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .defaultIconButton {
+        background: $ligthBlue;
+        color: white;        
+        margin: 0 5px;
+        padding: 2px;
+        height: 30px;
+        width: 30px;
+        border: $greenBlue 2px outset;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .defaultLogo {
+        color: $ligthGray;
+        height: 100%;
+        width: 100%;
+    }
+
+    .defaultTitle {
+            color: $liveBlue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 35px;
+            text-align: center;
+    }
+}

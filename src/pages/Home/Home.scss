@@ -1,0 +1,35 @@
+@import '../../common/scss/colors';
+
+.home {
+    display: flex;
+    flex-direction: column;
+    height: 92%;
+    align-items: center;
+    justify-content: flex-start;
+
+    .videosContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        
+        .singleVideoContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            border: $ligthBlue 2px solid;
+            border-radius: 5px;
+            margin: 10px;
+            height: 180px;
+            width: 200px;
+            cursor: pointer;
+            
+            &__media {
+                height: 135px;
+                width: 180px;
+                margin: 3px;
+                background: black;
+            }
+        }
+    }
+}

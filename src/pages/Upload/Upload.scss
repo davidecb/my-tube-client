@@ -1,0 +1,60 @@
+@import '../../common/scss/colors';
+
+.uploadMedia {
+    display: flex;
+    height: 92%;
+    align-items: center;
+    justify-content: center;
+
+    &__form {
+        background: $ligthGray;
+        border: $greenBlue 2px groove;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 50%;
+        height: 90%;
+        padding: 1.5% 3%;
+    }
+
+    &__input {
+        width: 80%;
+        resize: none;
+    }
+
+    .tagsContainer {
+        border: $greenBlue 2px groove;
+        border-radius: 10px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        &__title {
+            width: 100%;
+            text-align: center;
+            color: $liveBlue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        &__checkContainer {
+            margin: 5px 10px;
+        }
+    }
+
+    &__uploadSuccesfully {
+        background: $ligthGray;
+        border: $greenBlue 2px groove;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 40%;
+        height: 40%;
+        padding: 3% 5%;
+    }
+}

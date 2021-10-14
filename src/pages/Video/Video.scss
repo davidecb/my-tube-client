@@ -1,0 +1,45 @@
+@import '../../common/scss/colors';
+
+.video {
+    height: 92%;
+    
+    .pageContainer {
+        display: flex;
+        flex-direction: column;        
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__mediaContainer {
+        height: 405px;
+        width: 540px;
+        margin: 5px;
+        background: black;
+    }
+
+    .options {
+        height: 30px;
+        width: 200px;
+        display: flex;
+        justify-content: flex-end;
+        
+        &__valoration {
+            height: 100%;
+            width: 35%;
+            text-align: center;
+        }
+
+        &__download {
+            text-align: end;
+            height: 100%;
+            width: 30%;
+        }
+
+        &__icon {
+            cursor: pointer;
+            height: 20px;
+            width: 20px;
+        }
+
+    }
+}
