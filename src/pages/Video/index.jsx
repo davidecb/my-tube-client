@@ -2,11 +2,13 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaRegThumbsDown, FaRegThumbsUp, FaDownload } from 'react-icons/fa';
 import config from '../../common/api/config'
+import Loading from '../../components/Loading';
 import TrendingBar from '../../components/TrendingBar';
 import './Video.scss';
 
 function Video({ videoId, user, setUser }) {
     const [video, setVideo] = useState(undefined);
+    const [loadingState, setLoadingState] = useState(true);
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
     
@@ -14,13 +16,14 @@ function Video({ videoId, user, setUser }) {
         const url = `/api/videos/${videoId}`;
         axios.get(url, config).then(async (res) => {
             const videoData = res.data;            
-            videoData.sourc = await `data:${videoData.videoType}; base64, ${videoData.mediaBuffer}`;
+            videoData.source = await `data:${videoData.videoType}; base64, ${videoData.mediaBuffer}`;
             videoData.mediaBuffer = '';
             setTimeout(() => {
                 setLikes(videoData.likes)
                 setDislikes(videoData.dislikes)
                 setVideo(videoData)
-            }, 1000)
+                setLoadingState(false)
+            }, 100)
         }).catch(err => console.log(err.message));                    
     }, [])
 
@@ -61,12 +64,15 @@ function Video({ videoId, user, setUser }) {
 
     return (
         <div className="video">
+            {
+                loadingState && <Loading />
+            }
             {video && 
                 <div className="pageContainer">
                     <span className="video__title defaultTitle">{video.title}</span>            
                     <div className="video__mediaContainer">
-                        <video controls autoPlay width="540" height="405" >
-                            <source src={video.sourc} type={video.videoType} />
+                        <video controls autoPlay width="540" height="405" controlsList="nodownload">
+                            <source src={video.source} type={video.videoType} />
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -77,10 +83,17 @@ function Video({ videoId, user, setUser }) {
                         </div>
                         <div className="options__valoration">
                             <FaRegThumbsDown className="options__icon" onClick={dislikeClicked} />{dislikes}
-                        </div>
-                        <div className="options__download">
-                            <FaDownload className="options__icon" onClick={downloadVideo} />
-                        </div>
+                        </div>                        
+                        <a
+                            href={video.source}
+                            color="transparent"
+                            target="_blank"
+                            rel="noreferrer"
+                            download={`${video.title.replace(/( )/g, '-')}`} >
+                            <div className="options__download">
+                                <FaDownload className="options__icon" onClick={downloadVideo} />
+                            </div>
+                        </a>
                     </div>
                     <div className="video__tagsContainer">
                         <TrendingBar tags={video.tags} />

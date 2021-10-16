@@ -8,18 +8,17 @@ function SignIn({ user, setUser }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loginStatus, setLoginStatus] = useState('some')
-    //const [user, setUser] = useState('')
     const history = useHistory();
 
     const sendCredentials = async () => {
         const data = {
             email,
             password
-        };        
+        };
+
         const url = '/api/users/login';
-        //axios.get(url, config).then(res => console.log(res)).catch(err => console.log(err.message))
+
         axios.post(url, data, config).then(res => {
-            console.log(res.data)
             setLoginStatus(true)
             sessionStorage.setItem('user', JSON.stringify(res.data));
             setUser(res.data)
@@ -38,7 +37,7 @@ function SignIn({ user, setUser }) {
                 <div className="signIn__form">
                     <label className="signIn__title defaultTitle">Sign In </label>
                     {!loginStatus && <label className="signIn__wrongLogin">Wrong Email or password</label>}
-                    <label className="signIn__userLabel" for="signIn__email">Email:</label>
+                    <label className="signIn__userLabel" htmlFor="signIn__email">Email:</label>
                     <input 
                         className="signIn__input textInput"
                         name="email"
@@ -47,7 +46,7 @@ function SignIn({ user, setUser }) {
                         placeholder="Email..." 
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <label className="signIn__passwordLabel textInput" for="signIn__password">Password:</label>
+                    <label className="signIn__passwordLabel textInput" htmlFor="signIn__password">Password:</label>
                     <input 
                         className="signIn__input"
                         name="password" 

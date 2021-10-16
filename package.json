@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.22.0",
+    "get-file-object-from-local-path": "^1.0.2",
     "http-proxy-middleware": "^1.1.1",
     "node-sass": "^5.0.0",
     "postman-request": "^2.88.1-postman.30",

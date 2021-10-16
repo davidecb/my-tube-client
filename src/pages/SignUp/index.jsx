@@ -7,8 +7,7 @@ import './SignUp.scss';
 function SignUp({ user, setUser }) {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
-    //const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');    
     const history = useHistory();
 
     const createAccount = async () => {
@@ -17,10 +16,9 @@ function SignUp({ user, setUser }) {
             email,
             password
         };        
-        const url = '/api/users/'
-        //axios.get(url, config).then(res => console.log(res)).catch(err => console.log(err.message))
+        const url = '/api/users/';
+        
         axios.post(url, data, config).then(res => {
-            console.log(res.data)
             sessionStorage.setItem('user', JSON.stringify(res.data));
             setUser(res.data)
             setTimeout(() => {
@@ -38,7 +36,7 @@ function SignUp({ user, setUser }) {
             { !user &&
                 <div className="signUp__form">
                     <label className="signUp__title defaultTitle">Sign Up </label>
-                    <label className="signUp__userLabel" for="signUp__name">Name:</label>
+                    <label className="signUp__userLabel" htmlFor="signUp__name">Name:</label>
                     <input 
                         className="signUp__input textInput"
                         name="name"
@@ -47,7 +45,7 @@ function SignUp({ user, setUser }) {
                         placeholder="Name..." 
                         onChange={(e) => setName(e.target.value)}
                     />
-                    <label className="signUp__userLabel" for="signUp__email">Email:</label>
+                    <label className="signUp__userLabel" htmlFor="signUp__email">Email:</label>
                     <input 
                         className="signUp__input textInput"
                         name="email"
@@ -56,7 +54,7 @@ function SignUp({ user, setUser }) {
                         placeholder="Email..." 
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <label className="signUp__passwordLabel textInput" for="signUp__password">Password:</label>
+                    <label className="signUp__passwordLabel textInput" htmlFor="signUp__password">Password:</label>
                     <input 
                         className="signUp__input"
                         name="password" 

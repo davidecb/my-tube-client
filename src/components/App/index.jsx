@@ -14,11 +14,6 @@ function App() {
     const [user, setUser] = useState('');
     const history = useHistory();
 
-    const redirectToHome = () => {
-        history.replace('/home');
-        return (<Home />);
-    };
-
     useEffect(() => {
         if(!user) {
             const SSUser =  JSON.parse(sessionStorage.getItem('user'));

@@ -8,13 +8,12 @@ function MyProfile({ user, setUser }) {
 
     const deleteUser = () => {
         const url = '/api/users/me';
-        console.log(user.token)        
+
         axios.delete(url, {
             headers: {
               'Authorization': `Bearer ${user.token}` 
             }
           }).then(res => {
-            console.log(res.data)
             sessionStorage.setItem('user', JSON.stringify(''));
             setUser('')
             setTimeout(() => {
@@ -37,7 +36,6 @@ function MyProfile({ user, setUser }) {
               'Authorization': `Bearer ${user.token}` 
             }
           }).then(res => {
-            console.log(res.data)
             sessionStorage.setItem('user', JSON.stringify(''));
             setUser('')
             setTimeout(() => {
@@ -55,7 +53,6 @@ function MyProfile({ user, setUser }) {
               'Authorization': `Bearer ${user.token}` 
             }
           }).then(res => {
-            console.log(res.data)
             sessionStorage.setItem('user', JSON.stringify(''));
             setUser('')
             setTimeout(() => {
